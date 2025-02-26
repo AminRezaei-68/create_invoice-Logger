@@ -1,17 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Module } from '@nestjs/common';
 import { DSvcModule } from '../d-svc/d-svc.module';
 import { CSvcModule } from '../c-svc/c-svc.module';
 import { BSvcModule } from '../b-svc/b-svc.module';
 import { JwtGuard } from '../jwt-guard/jwt.guard';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
-    DSvcModule,
-    CSvcModule,
-    BSvcModule,
-    JwtModule,
     ClientsModule.register([
       {
         name: 'MICRO_B',
@@ -22,6 +18,6 @@ import { JwtModule } from '@nestjs/jwt';
   ],
   controllers: [],
   providers: [JwtGuard],
-  exports: [JwtGuard],
+  exports: [ClientsModule],
 })
 export class JwtGuardModule {}

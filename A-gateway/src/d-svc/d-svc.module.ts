@@ -1,20 +1,24 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import { forwardRef, Module } from '@nestjs/common';
 import { DSvcService } from './d-svc.service';
 import { DSvcController } from './d-svc.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
+import { JwtGuardModule } from 'src/jwt-guard/jwt-guard.module';
+import { JwtGuard } from 'src/jwt-guard/jwt.guard';
 // import { JwtGuardModule } from '../jwt-guard/jwt-guard.module';
 // import { JwtGuard } from 'src/common/guards/jwt.guard';
 
 @Module({
   imports: [
-    ClientsModule.register([
-      {
-        name: 'MICRO_B',
-        transport: Transport.TCP,
-        options: { port: 5555 },
-      },
-    ]),
+    // ClientsModule.register([
+    //   {
+    //     name: 'MICRO_B',
+    //     transport: Transport.TCP,
+    //     options: { port: 5555 },
+    //   },
+    // ]),
+    JwtGuardModule,
     ClientsModule.register([
       {
         name: 'logger',

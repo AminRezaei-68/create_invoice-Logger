@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /*
 import { Module } from '@nestjs/common';
 import { DSvcModule } from './d-svc/d-svc.module';
@@ -27,13 +28,13 @@ import { JwtGuardModule } from './jwt-guard/jwt-guard.module';
     DSvcModule,
     CSvcModule,
     BSvcModule,
-    ClientsModule.register([
-      {
-        name: 'MICRO_B',
-        transport: Transport.TCP,
-        options: { port: 5555 },
-      },
-    ]),
+    // ClientsModule.register([
+    //   {
+    //     name: 'MICRO_B',
+    //     transport: Transport.TCP,
+    //     options: { port: 5555 },
+    //   },
+    // ]),
     JwtGuardModule,
   ],
   controllers: [],
