@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Module } from '@nestjs/common';
 import { JwtGuard } from '../jwt-guard/jwt.guard';
 import { ClientsModule, Transport } from '@nestjs/microservices';
