@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Invoice {
+  id           Int           @id @default(autoincrement()) @unique
+  userId       Int           
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @default(now())
+  totalAmount  Float         @db.Real 
+  status       String
+  products     InvoiceProducts[]   
+}
+
+model Product {
+productId    Int           @id @default(autoincrement()) @unique
+name         String
+description  String
+price        Float         @db.Real @default(0)
+stock        Int           @default(1)
+isAvailable  Boolean       @default(true)
+invoices     InvoiceProducts[]    
+}
+
+model InvoiceProducts {
+  invoice     Invoice   @relation(fields: [invoiceId], references: [id])
+  invoiceId   Int
+  product     Product   @relation(fields: [productId], references: [productId])
+  productId   Int
+
+  @@id([invoiceId, productId])
+}
+
