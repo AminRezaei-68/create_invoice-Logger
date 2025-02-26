@@ -12,22 +12,6 @@ export class BSvcService {
         return 'This action adds a new bSvc';
     }
 
-    // findAll() {
-    //     return `This action returns all bSvc`;
-    // }
-
-    // findOne(id: number) {
-    //     return `This action returns a #${id} bSvc`;
-    // }
-
-    // update(id: number, updateBSvcDto: UpdateBSvcDto) {
-    //     return `This action updates a #${id} bSvc`;
-    // }
-
-    // remove(id: number) {
-    //     return `This action removes a #${id} bSvc`;
-    // }
-
     async findUser(userId: number): Promise<UserResponse> {
         const pattern = { cmd: 'finding_user' };
         const data = { id: userId };

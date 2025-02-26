@@ -12,24 +12,4 @@ export class BSvcController {
     create(@Payload() createBSvcDto: CreateBSvcDto) {
         return this.bSvcService.create(createBSvcDto);
     }
-
-    // @MessagePattern('findAllBSvc')
-    // findAll() {
-    //     return this.bSvcService.findAll();
-    // }
-
-    // @MessagePattern('findOneBSvc')
-    // findOne(@Payload() id: number) {
-    //     return this.bSvcService.findOne(id);
-    // }
-
-    // @MessagePattern('updateBSvc')
-    // update(@Payload() updateBSvcDto: UpdateBSvcDto) {
-    //     return this.bSvcService.update(updateBSvcDto.id, updateBSvcDto);
-    // }
-
-    // @MessagePattern('removeBSvc')
-    // remove(@Payload() id: number) {
-    //     return this.bSvcService.remove(id);
-    // }
 }

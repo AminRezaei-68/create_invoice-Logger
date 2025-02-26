@@ -34,7 +34,6 @@ export class BSvcController {
     @Body() loginDto: LoginDto,
     @Res() res: Response,
   ): Promise<Response<MessageResponseWithTokens>> {
-    // ) {
     console.log('hit login B-svc controller.');
     const tokens = await this.bSvcService.login(loginDto);
 
